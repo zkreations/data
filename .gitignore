@@ -3,3 +3,8 @@ manifest.json
 
 # Folders
 /src
+
+# Node.js
+/node_modules
+package.json
+package-lock.json

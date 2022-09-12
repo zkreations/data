@@ -7,3 +7,9 @@
 /node_modules
 package.json
 package-lock.json
+
+# Hugo files
+/site
+/resources
+config.toml
+.hugo_build.lock

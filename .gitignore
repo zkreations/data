@@ -11,5 +11,6 @@ package-lock.json
 # Hugo files
 /site
 /resources
+/public
 config.toml
 .hugo_build.lock

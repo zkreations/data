@@ -2,6 +2,7 @@
 
 # Folders
 /src
+/.vscode
 
 # Node.js
 /node_modules

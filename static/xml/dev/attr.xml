@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html b:css="false" b:js="false" b:defaultwidgetversion="2" b:layoutsVersion="3" expr:dir="data:blog.languageDirection" expr:lang="data:blog.locale">
+<head>
+  <meta expr:charset="data:blog.encoding"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>@attr</title>
+  <link expr:href="data:blog.blogspotFaviconUrl" rel="icon" type="image/x-icon"/>
+  <b:skin><![CDATA[
+    /* Demo */
+    * { margin: 0 }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #030712;
+      color: #f9fafb;
+      line-height: 1.5;
+      padding: 2rem;
+    }
+
+    /*Test*/
+    div {
+      padding: 3rem;
+      text-align: center;
+    }
+
+    div:not(.console) {
+      background-color: #111827;
+    }
+
+    div:not(.console)::before {
+      content: "Elemento div padre";
+      margin-bottom: 2rem;
+      display: block;
+    }
+
+    .console {
+      background-color: #1f2937;
+      border-radius: 1rem;
+    }
+  ]]></b:skin>
+  <b:defaultmarkups>
+    <b:defaultmarkup type="Common">
+      <b:includable id='@attr'>
+        <b:comment><!--
+        // @arg {object} - Un objeto de matrices con los atributos y sus valores
+        --></b:comment>
+        <b:loop values='data:' var='i'>
+          <b:attr expr:name='data:i[0] ?: "null"' expr:value='data:i[1]'/>
+        </b:loop>
+      </b:includable>
+    </b:defaultmarkup>
+  </b:defaultmarkups>
+</head>
+<body>
+  <b:section cond='data:view.isLayoutMode' id='main'/>
+  <div class='another'>
+    <b:include data='{["id","foo"],["class","foo"]}' name='@attr'/>
+
+    <!-- Te indica visualmente que atributos agregaste o quitaste -->
+    <div class='console'></div>
+  </div>
+
+  <!-- Consola visual -->
+  <script>
+  /*<![CDATA[*/
+    const console = document.querySelector(".console");
+    const padre = console.parentElement;
+    const atributos = Array.from(padre.attributes);
+
+    if (atributos.length === 0) {
+      console.innerHTML = "<p>No hay atributos</p>";
+    } else {
+      atributos.forEach((atributo) => {
+        const p = `<p><span>${atributo.name}: </span><span>${atributo.value}</span></p>`;
+        console.insertAdjacentHTML("beforeend", p);
+      });
+    }
+  /*]]>*/
+  </script>
+</body>
+</html>

@@ -2,6 +2,7 @@
   "origins": [
     "https://zkreations.com",
     "https://www.zkreations.com",
+    "https://beta.zkreations.com",
     "https://store.zkreations.com"
   ],
   "defaultCommentOrder": "newest"

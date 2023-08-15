@@ -41,6 +41,6 @@
     "stylelint-config-standard-scss": "^9.0.0"
   },
   "dependencies": {
-    "meteor-icons": "^2.1.12"
+    "meteor-icons": "^2.1.17"
   }
 }

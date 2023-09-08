@@ -19,28 +19,28 @@
   },
   "homepage": "https://github.com/zkreations/hamlet#readme",
   "devDependencies": {
-    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-env": "^7.22.15",
     "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-commonjs": "^25.0.1",
-    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.1",
     "@rollup/plugin-terser": "^0.4.3",
-    "autoprefixer": "^10.4.14",
-    "browserslist": "^4.21.8",
-    "chai": "^4.3.7",
+    "autoprefixer": "^10.4.15",
+    "browserslist": "^4.21.10",
+    "chai": "^4.3.8",
     "cheerio": "^1.0.0-rc.12",
     "chokidar": "^3.5.3",
     "clean-css-cli": "^5.6.2",
-    "eslint": "^8.42.0",
+    "eslint": "^8.48.0",
     "eslint-config-standard": "^17.1.0",
-    "handlebars": "^4.7.7",
-    "jest": "^29.5.0",
-    "postcss": "^8.4.24",
-    "rollup": "^3.25.1",
-    "sass": "^1.63.3",
-    "stylelint": "^15.7.0",
-    "stylelint-config-standard-scss": "^9.0.0"
+    "handlebars": "^4.7.8",
+    "jest": "^29.6.4",
+    "postcss": "^8.4.29",
+    "rollup": "^3.29.0",
+    "sass": "^1.66.1",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard-scss": "^11.0.0"
   },
   "dependencies": {
-    "meteor-icons": "^2.1.17"
+    "meteor-icons": "^2.1.18"
   }
 }

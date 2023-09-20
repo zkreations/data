@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:js='false' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta expr:charset='data:blog.encoding'/>
+  <meta content='width=device-width,initial-scale=1' name='viewport'/>
+  <title>@image</title>
+  <link expr:href='data:blog.blogspotFaviconUrl' rel='icon' type='image/x-icon'/>
+  <b:skin><![CDATA[
+    /* Demo */
+    * { margin: 0 }
+    body {
+      background-color: #fff;
+      padding: 2rem;
+    }
+
+    /*Test*/
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  ]]></b:skin>
+  <b:defaultmarkups>
+    <b:defaultmarkup type='Common'>
+      <b:includable id='@image'>
+        <b:if cond='data:src'>
+          <b:with value='data:src.isYoutube ? data:src.youtubeMaxResDefaultUrl : data:src' var='source'>
+          <b:with value='(data:resize ? resizeImage(data:src, data:resize, data:ratio) : (data:source))' var='image'>
+            <b:tag expr:alt='data:alt ?: data:messages.image' name='img'>
+              <b:attr name='b:whitespace' value='remove'/>
+              <b:attr name='id' expr:value='data:id'/>
+              <b:class cond='data:class' expr:name='data:class'/>
+              <b:attr name='width' expr:value='data:width ?: data:image.width'/>
+              <b:attr name='height' expr:value='data:height ?: data:image.height'/>
+              <b:attr name='sizes' expr:value='data:sizes'/>
+              <b:attr name='loading' expr:value='data:loading'/>
+              <b:with value='data:params and (data:image contains "blogger.googleusercontent.com/img/a/") ? ("-" + data:params) : ""' var='params'>
+                <b:attr name='src' expr:value='(data:srcset ? resizeImage(data:image, data:srcset.first, data:ratio) : data:image) + data:params'/>
+              </b:with>
+              <b:if cond='data:srcset'>
+                <b:attr name='srcset' expr:value='sourceSet(data:image, data:srcset, data:ratio)'/>
+              </b:if>
+            </b:tag>
+          </b:with>
+          </b:with>
+        <b:else/>
+          <b:comment render='true'>Parameter [src] is required.</b:comment>
+        </b:if>
+      </b:includable>
+    </b:defaultmarkup>
+    <b:defaultmarkup type="Blog">
+      <b:includable id="main"/>
+      <b:includable id="defaultAdUnit"/>
+      <b:includable id="blogThisShare"/>
+      <b:includable id="bylineByName"/>
+      <b:includable id="bylineRegion"/>
+      <b:includable id="commentsLink"/>
+      <b:includable id="commentsLinkIframe"/>
+      <b:includable id="emailPostIcon"/>
+      <b:includable id="facebookShare"/>
+      <b:includable id="footerBylines"/>
+      <b:includable id="headerByline"/>
+      <b:includable id="googlePlusShare"/>
+      <b:includable id="linkShare"/>
+      <b:includable id="otherSharingButton"/>
+      <b:includable id="platformShare"/>
+      <b:includable id="postAuthor"/>
+      <b:includable id="postCommentsLink"/>
+      <b:includable id="postJumpLink"/>
+      <b:includable id="postLabels"/>
+      <b:includable id="postLocation"/>
+      <b:includable id="postReactions"/>
+      <b:includable id="postShareButtons"/>
+      <b:includable id="postTimestamp"/>
+      <b:includable id="sharingButton"/>
+      <b:includable id="sharingButtonContent"/>
+      <b:includable id="sharingButtons"/>
+      <b:includable id="sharingButtonsMenu"/>
+      <b:includable id="sharingPlatformIcon"/>
+      <b:includable id="aboutPostAuthor"/>
+      <b:includable id="addComments"/>
+      <b:includable id="commentAuthorAvatar"/>
+      <b:includable id="commentDeleteIcon"/>
+      <b:includable id="commentForm"/>
+      <b:includable id="commentFormIframeSrc"/>
+      <b:includable id="commentItem"/>
+      <b:includable id="commentList"/>
+      <b:includable id="commentPicker"/>
+      <b:includable id="comments"/>
+      <b:includable id="commentsTitle"/>
+      <b:includable id="feedLinks"/>
+      <b:includable id="feedLinksBody"/>
+      <b:includable id="homePageLink"/>
+      <b:includable id="iframeComments"/>
+      <b:includable id="inlineAd"/>
+      <b:includable id="manageComments"/>
+      <b:includable id="nextPageLink"/>
+      <b:includable id="post"/>
+      <b:includable id="postBody"/>
+      <b:includable id="postBodySnippet"/>
+      <b:includable id="postCommentsAndAd"/>
+      <b:includable id="postFooter"/>
+      <b:includable id="postFooterAuthorProfile"/>
+      <b:includable id="postHeader"/>
+      <b:includable id="postMeta"/>
+      <b:includable id="postMetadataJSONImage"/>
+      <b:includable id="postMetadataJSONPublisher"/>
+      <b:includable id="postPagination"/>
+      <b:includable id="postTitle"/>
+      <b:includable id="previousPageLink"/>
+      <b:includable id="threadedCommentForm"/>
+      <b:includable id="threadedCommentJs"/>
+      <b:includable id="threadedComments"/>
+    </b:defaultmarkup>
+  </b:defaultmarkups>
+</head>
+<body>
+  <b:section cond='data:view.isLayoutMode' id='main'>
+    <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'/>
+  </b:section>
+  <!-- Recorre los posts y muestra la imagen destacada -->
+  <div class="gallery">
+    <b:loop values='data:widgets.Blog.first.posts where (p => p.featuredImage) map (p => p.featuredImage)' var='image'>
+      <b:include name='@image' data='{ src: data:image, resize: 300, ratio: "1:1" }'/>
+    </b:loop>
+  </div>
+</body>
+</html>

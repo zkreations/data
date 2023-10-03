@@ -1,10 +1,10 @@
 node_modules
 .cache.json
 package-lock.json
+*.md
 
 # Ignorar archivos fuentes
 src/
-site/
 dist/*.xml
 dist/css/
 dist/js/main.js

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:js='true' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta expr:charset='data:blog.encoding'/>
+  <meta content='width=device-width,initial-scale=1' name='viewport'/>
+  <title>@menu</title>
+  <link expr:href='data:blog.blogspotFaviconUrl' rel='icon' type='image/x-icon'/>
+  <b:skin><![CDATA[
+    /* Demo */
+    * { margin: 0 }
+    body {
+      background-color: #fff;
+      padding: 2rem;
+    }
+
+    ul,
+    ol,
+    ul li,
+    ol li { list-style: none }
+
+    /*Test*/
+    .nav {
+      padding: 0;
+    }
+  ]]></b:skin>
+  <b:defaultmarkups>
+    <b:defaultmarkup type='Common'>
+      <b:includable id='@menu'>
+        <b:comment><!--
+        // @param {array} links - Array of links
+        // @param {string} [prefix="__"] - Prefix for filter links
+        // @param {string} [id] - Identificador único
+        // @param {string} [class] - Clases adicionales
+        --></b:comment>
+        <b:with value='data:prefix ?: "__"' var='prefix'>
+          <b:if cond='data:links[0].title contains data:prefix'>
+            <b:comment render='true'>The first element can't have the prefix</b:comment>
+          <b:elseif cond='data:links any (l => l.title + 0 == l.title)'/>
+            <b:comment render='true'>The element can't be a number</b:comment>
+          <b:elseif cond='!data:links.any'/>
+            <b:comment render='true'>The array is empty</b:comment>
+          <b:else/>
+            <ul class='nav'>
+              <b:class cond='data:class' expr:name='data:class'/>
+              <b:attr name='id' expr:value='data:id'/>
+              <b:loop index='i' values='data:links' var='link'>
+                <b:with value='{
+                    current: (data:link.title contains data:prefix),
+                    next: (data:links[data:i + 1].title contains data:prefix)
+                  }' var='hasPrefix'>
+                <b:with value='{
+                    start: (data:hasPrefix.next and !data:hasPrefix.current),
+                    end: (!data:hasPrefix.next and data:hasPrefix.current)
+                  }' var='menu'>
+                  &lt;li class="nav-item<b:if cond='data:menu.start'> has-subnav</b:if>"&gt;
+                  <a class='nav-link' expr:href='data:link.href'><data:link.title/></a>
+                  <b:if cond='data:menu.start'>
+                    &lt;ul class="nav-subnav"&gt;
+                  </b:if>
+                  <b:if cond='data:menu.end'>&lt;/li&gt;&lt;/ul&gt;</b:if>
+                  <b:if cond='!data:menu.start'>&lt;/li&gt;</b:if>
+                </b:with>
+                </b:with>
+              </b:loop>
+            </ul>
+          </b:if>
+        </b:with>
+      </b:includable>
+    </b:defaultmarkup>
+    <b:defaultmarkup type="PageList">
+      <b:includable id="main"/>
+      <b:includable id="content"/>
+      <b:includable id="overflowButton"/>
+      <b:includable id="overflowablePageList"/>
+      <b:includable id="pageLink"/>
+      <b:includable id="pageList"/>
+    </b:defaultmarkup>
+  </b:defaultmarkups>
+</head>
+<body>
+  <b:section id='main'>
+    <b:widget id='PageList1' locked='true' title='Menu desplegable' type='PageList'>
+      <b:widget-settings>
+        <b:widget-setting name='pageListJson'><![CDATA[{"link1":{"href":"#url","position":1,"title":"Elemento 2"},"link0":{"href":"#url","position":0,"title":"Elemento 1"},"link5":{"href":"#url","position":5,"title":"Elemento 4"},"link4":{"href":"#url","position":4,"title":"Elemento 3"},"link3":{"href":"#url","position":3,"title":"__Elemento 2.2"},"link2":{"href":"","position":2,"title":"__Elemento 2.1"},"link8":{"href":"#url","position":8,"title":"__Elemento 4.3"},"link7":{"href":"#url","position":7,"title":"__Elemento 4.2"},"link6":{"href":"#url","position":6,"title":"__Elemento 4.1"}}]]></b:widget-setting>
+      </b:widget-settings>
+      <b:includable id='main'>
+        <div class='nav-example'>
+          <b:include name='@menu' data='{ links: data:links }'/>
+        </div>
+      </b:includable>
+    </b:widget>
+  </b:section>
+  <!-- Quita los guiones bajos del texto de los enlaces -->
+  <script>
+  //<![CDATA[
+    const SUBNAV_LINKS = document.querySelectorAll('.nav-subnav .nav-link')
+    if (SUBNAV_LINKS.length) {
+      SUBNAV_LINKS.forEach(link => {
+        const LINK_TEXT = link.textContent.trim()
+        link.textContent = LINK_TEXT.replace(/^_+/, '')
+      })
+    }
+  //]]>
+  </script>
+</body>
+</html>

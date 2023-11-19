@@ -94,13 +94,9 @@
   <!-- Quita los guiones bajos del texto de los enlaces -->
   <script>
   //<![CDATA[
-    const SUBNAV_LINKS = document.querySelectorAll('.nav-subnav .nav-link')
-    if (SUBNAV_LINKS.length) {
-      SUBNAV_LINKS.forEach(link => {
-        const LINK_TEXT = link.textContent.trim()
-        link.textContent = LINK_TEXT.replace(/^_+/, '')
-      })
-    }
+    document.querySelectorAll('.nav-subnav .nav-link').forEach(link => {
+      link.textContent = link.textContent.trim().replace(/^_+/, '')
+    })
   //]]>
   </script>
 </body>

@@ -1,44 +1,45 @@
 {
-  "name":"zkreations",
-  "short_name":"zkreations",
+  "id": "/",
+  "name": "zkreations",
+  "short_name": "zkreations",
   "description": "Aprende a crear páginas web o blogs, y otros recursos para desarrolladores sobre HTML, CSS, Javascript, Blogger, Wordpress y más.",
-  "start_url":"https://www.zkreations.com/",
-  "display":"standalone",
-  "theme_color":"#0f0f13",
-  "background_color":"#0f0f13",
-  "icons":[
-     {
-        "sizes":"120x120",
-        "src":"dist/favicon/apple-touch-icon-120x120.png"
-     },
-     {
-        "sizes":"152x152",
-        "src":"dist/favicon/apple-touch-icon-152x152.png"
-     },
-     {
-        "sizes":"180x180",
-        "src":"dist/favicon/apple-touch-icon-180x180.png"
-     },
-     {
-        "sizes":"60x60",
-        "src":"dist/favicon/apple-touch-icon-60x60.png"
-     },
-     {
-        "src":"dist/favicon/app-icon-192.png",
-        "type":"image/png",
-        "sizes":"192x192"
-     },
-     {
-        "src":"dist/favicon/app-icon-512.png",
-        "type":"image/png",
-        "sizes":"512x512"
-     },
-     {
-       "src": "dist/favicon/maskable_icon.png",
-       "type": "image/png",
-       "sizes": "384x384",
-       "purpose": "maskable"
-     }
+  "start_url": "https://www.zkreations.com/",
+  "display": "standalone",
+  "theme_color": "#0f0f13",
+  "background_color": "#0f0f13",
+  "icons": [
+    {
+      "sizes": "120x120",
+      "src": "dist/favicon/apple-touch-icon-120x120.png"
+    },
+    {
+      "sizes": "152x152",
+      "src": "dist/favicon/apple-touch-icon-152x152.png"
+    },
+    {
+      "sizes": "180x180",
+      "src": "dist/favicon/apple-touch-icon-180x180.png"
+    },
+    {
+      "sizes": "60x60",
+      "src": "dist/favicon/apple-touch-icon-60x60.png"
+    },
+    {
+      "src": "dist/favicon/app-icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "dist/favicon/app-icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "dist/favicon/maskable_icon.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    }
   ],
   "screenshots": [
     {

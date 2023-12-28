@@ -8,32 +8,32 @@
   "icons":[
      {
         "sizes":"120x120",
-        "src":"/dist/favicon/apple-touch-icon-120x120.png"
+        "src":"dist/favicon/apple-touch-icon-120x120.png"
      },
      {
         "sizes":"152x152",
-        "src":"/dist/favicon/apple-touch-icon-152x152.png"
+        "src":"dist/favicon/apple-touch-icon-152x152.png"
      },
      {
         "sizes":"180x180",
-        "src":"/dist/favicon/apple-touch-icon-180x180.png"
+        "src":"dist/favicon/apple-touch-icon-180x180.png"
      },
      {
         "sizes":"60x60",
-        "src":"/dist/favicon/apple-touch-icon-60x60.png"
+        "src":"dist/favicon/apple-touch-icon-60x60.png"
      },
      {
-        "src":"/dist/favicon/app-icon-192.png",
+        "src":"dist/favicon/app-icon-192.png",
         "type":"image/png",
         "sizes":"192x192"
      },
      {
-        "src":"/dist/favicon/app-icon-512.png",
+        "src":"dist/favicon/app-icon-512.png",
         "type":"image/png",
         "sizes":"512x512"
      },
      {
-       "src": "/dist/favicon/maskable_icon.png",
+       "src": "dist/favicon/maskable_icon.png",
        "type": "image/png",
        "sizes": "384x384",
        "purpose": "maskable"
@@ -41,37 +41,37 @@
   ],
   "screenshots": [
     {
-      "src": "/dist/images/screenshot1.png",
+      "src": "dist/images/screenshot1.png",
       "type": "image/png",
       "sizes": "540x720",
       "form_factor": "narrow"
     },
     {
-      "src": "/dist/images/screenshot2.png",
+      "src": "dist/images/screenshot2.png",
       "type": "image/png",
       "sizes": "540x720",
       "form_factor": "narrow"
     },
     {
-      "src": "/dist/images/screenshot3.png",
+      "src": "dist/images/screenshot3.png",
       "type": "image/png",
       "sizes": "540x720",
       "form_factor": "narrow"
     },
     {
-      "src": "/dist/images/screenshot4.jpg",
+      "src": "dist/images/screenshot4.jpg",
       "type": "image/jpg",
       "sizes": "720x540",
       "form_factor": "wide"
     },
     {
-      "src": "/dist/images/screenshot5.jpg",
+      "src": "dist/images/screenshot5.jpg",
       "type": "image/jpg",
       "sizes": "720x540",
       "form_factor": "wide"
     },
     {
-      "src": "/dist/images/screenshot6.jpg",
+      "src": "dist/images/screenshot6.jpg",
       "type": "image/jpg",
       "sizes": "720x540",
       "form_factor": "wide"

@@ -1,6 +1,7 @@
 {
   "name":"zkreations",
   "short_name":"zkreations",
+  "description": "Aprende a crear páginas web o blogs, y otros recursos para desarrolladores sobre HTML, CSS, Javascript, Blogger, Wordpress y más.",
   "start_url":"https://www.zkreations.com/",
   "display":"standalone",
   "theme_color":"#0f0f13",

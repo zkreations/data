@@ -59,20 +59,20 @@
       "form_factor": "narrow"
     },
     {
-      "src": "dist/images/screenshot4.jpg",
-      "type": "image/jpg",
+      "src": "dist/images/screenshot4.png",
+      "type": "image/png",
       "sizes": "720x540",
       "form_factor": "wide"
     },
     {
-      "src": "dist/images/screenshot5.jpg",
-      "type": "image/jpg",
+      "src": "dist/images/screenshot5.png",
+      "type": "image/png",
       "sizes": "720x540",
       "form_factor": "wide"
     },
     {
-      "src": "dist/images/screenshot6.jpg",
-      "type": "image/jpg",
+      "src": "dist/images/screenshot6.png",
+      "type": "image/png",
       "sizes": "720x540",
       "form_factor": "wide"
     }

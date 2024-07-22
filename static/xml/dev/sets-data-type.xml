@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:js='false' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta expr:charset='data:blog.encoding'/>
+  <meta content='width=device-width,initial-scale=1' name='viewport'/>
+  <title>Sets data type</title>
+  <link expr:href='data:blog.blogspotFaviconUrl' rel='icon' type='image/x-icon'/>
+  <b:skin><![CDATA[
+    /*
+      Tipos de datos
+      =================
+      [number] Valor numérico
+      <Variable name="number" description="Número" type="string" value="4"/>
+
+      [string] Cadena de caracteres
+      <Variable name="string" description="Texto" type="string" value="Texto"/>
+
+      [boolean] Un valor que puede ser true o false
+      <Variable name="boolean" description="Booleano" type="string" value="true"/>
+    */
+
+    /* Demo */
+    body {
+      padding: 2rem;
+      font-family: system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
+    }
+    * { margin: 0 }
+    table { border-collapse: collapse }
+    tr > * + * { text-align: center }
+    tr > * {
+      padding: 1rem;
+      border: 1px solid #ccc;
+    }
+  ]]></b:skin>
+</head>
+<body>
+  <b:section cond='data:view.isLayoutMode' id='main'/>
+  <b:comment>
+    Alias para para no repetir data:skin.vars
+  </b:comment>
+  <b:with value='{
+    int: data:skin.vars.number,
+    str: data:skin.vars.string,
+    bool: data:skin.vars.boolean,
+  }' var='var'>
+    <table>
+      <thead>
+        <tr>
+          <th>Variable</th>
+          <th>Valor en la variable</th>
+          <th>Resultado</th>
+          <th>Expresion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>data:skin.vars.number</td>
+          <td><b:eval expr='data:var.int'/></td>
+          <b:with value='data:var.int + 0 == data:var.int ? (data:var.int * 1) : 1' var='number'>
+            <td><b:eval expr='data:number'/></td>
+            <td><data:number/> * 20: <b:eval expr='data:number * 20'/></td>
+          </b:with>
+        </tr>
+        <tr>
+          <td>data:skin.vars.string</td>
+          <td><b:eval expr='data:var.str'/></td>
+          <b:with value='data:var.str + "."' var='string'>
+            <td><b:eval expr='data:string'/></td>
+            <td>¿Hay letra e?: <b:eval expr='data:string contains "e"'/></td>
+          </b:with>
+        </tr>
+        <tr>
+          <td>data:skin.vars.boolean</td>
+          <td><b:eval expr='data:var.bool'/></td>
+          <td><b:eval expr='data:var.bool ? true : false'/></td>
+          <td>¿Es boleano?: <b:eval expr='data:var.bool ? "Si" : "No"'/></td>
+        </tr>
+      </tbody>
+    </table>
+  </b:with>
+</body>
+</html>

@@ -26,18 +26,20 @@
   <b:defaultmarkups>
     <b:defaultmarkup type='Common'>
       <b:includable id='@picture'>
-        <b:comment><!--
-        // @param {image} src - Url de la imagen
-        // @param {array} [resizeSet] - Tabla de dimensiones
-        // @param {string} [alt=data:messages.image] - Texto alternativo
-        // @param {string} [id] - Identificador único
-        // @param {string} [class] - Clases adicionales
-        // @param {string} [width] - Ancho personalizado
-        // @param {string} [height] - Alto personalizado
-        // @param {string} [ratio] - Relación de aspecto (4:3, 16:9 etc)
-        // @param {string} [loading] - Valor para el atributo loading
-        // @param {string} [params] - Parámetros adicionales (zkreations.com/image-params)
-        --></b:comment>
+        <b:comment>
+        Create custom picture tag
+        @author zkreations
+        @param {image} src - Image url
+        @param {array} [resizeSet] - Change dimensions
+        @param {string} [alt=data:messages.image] - Fallback text
+        @param {string} [id] - Unique id
+        @param {string} [class] - Additional classes
+        @param {string} [width] - Image width
+        @param {string} [height] - Image height
+        @param {string} [ratio] - Aspect ratio
+        @param {string} [loading] - Loading attribute
+        @param {string} [params] - Additional Google image parameters (zkreations.com/image-params)
+        </b:comment>
         <b:if cond='data:src'>
         <picture>
           <b:with value='data:src.isYoutube
@@ -51,7 +53,7 @@
               <b:with value='[
                 "content.com/img/a/",
                 "content.com/blogger_img_proxy"
-              ]' var='servers'> 
+              ]' var='servers'>
               <b:with value='data:params and (data:servers any (server => server in data:image.url))
                 ? (data:image.url + "-" + data:params)
                 : data:image.url' var='imageUrl'>

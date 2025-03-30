@@ -23,20 +23,22 @@
   <b:defaultmarkups>
     <b:defaultmarkup type='Common'>
       <b:includable id='@image'>
-        <b:comment><!--
-        // @param {image} src - Url de la imagen
-        // @param {string} [alt=data:messages.image] - Texto alternativo
-        // @param {string} [id] - Identificador único
-        // @param {string} [class] - Clases adicionales
-        // @param {string} [width] - Ancho personalizado
-        // @param {string} [height] - Alto personalizado
-        // @param {number} [resize] - Nuevo tamaño de la imagen
-        // @param {string} [ratio] - Relación de aspecto (4:3, 16:9 etc)
-        // @param {string} [sizes] - Valores para el atributo sizes
-        // @param {array} [srcset] - Tabla de dimensiones (genera srcset)
-        // @param {string} [loading] - Valor para el atributo loading
-        // @param {string} [params] - Parámetros adicionales (zkreations.com/image-params)
-        --></b:comment>
+        <b:comment>
+        Create custom image tag
+        @author zkreations
+        @param {image} src - Image url
+        @param {string} [alt=data:messages.image] - Fallback text
+        @param {string} [id] - Unique id
+        @param {string} [class] - Additional classes
+        @param {string} [width] - Image width
+        @param {string} [height] - Image height
+        @param {number} [resize] - Change dimensions
+        @param {string} [ratio] - Aspect ratio
+        @param {string} [sizes] - Sizes attribute value
+        @param {array} [srcset] - Array of dimensions
+        @param {string} [loading] - Loading attribute
+        @param {string} [params] - Additional Google image parameters
+        </b:comment>
         <b:if cond='data:src'>
           <b:with value='data:src.isYoutube
             ? data:src.youtubeMaxResDefaultUrl
@@ -55,7 +57,7 @@
               <b:with value='[
                 "content.com/img/a/",
                 "content.com/blogger_img_proxy"
-              ]' var='servers'> 
+              ]' var='servers'>
               <b:with value='data:params and (data:servers any (server => server in data:image))
                 ? ("-" + data:params)
                 : ""' var='params'>

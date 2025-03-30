@@ -27,12 +27,14 @@
   <b:defaultmarkups>
     <b:defaultmarkup type='Common'>
       <b:includable id='@menu'>
-        <b:comment><!--
-        // @param {array} links - Array of links
-        // @param {string} [prefix="__"] - Prefix for filter links
-        // @param {string} [id] - Identificador único
-        // @param {string} [class] - Clases adicionales
-        --></b:comment>
+        <b:comment>
+        Create a menu from a list of links
+        @author zkreations
+        @param {array} links - Array of links
+        @param {string} [prefix="__"] - Prefix for filter links
+        @param {string} [class] - Class for the menu
+        @param {string} [id] - Id for the menu
+        </b:comment>
         <b:with value='data:prefix ?: "__"' var='prefix'>
           <b:if cond='data:links[0].title contains data:prefix'>
             <b:comment render='true'>The first element can't have the prefix</b:comment>

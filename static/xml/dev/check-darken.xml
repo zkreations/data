@@ -7,7 +7,7 @@
   <title>@checkDarken</title>
   <link expr:href="data:blog.blogspotFaviconUrl" rel="icon" type="image/x-icon"/>
   <b:skin><![CDATA[
-    /* 
+    /*
       <Group description="Backgrounds">
         <Variable name="bg1" description="Fondo 1" type="color" default="#fff"/>
         <Variable name="bg2" description="Fondo 2" type="color" default="#0f172a"/>
@@ -29,27 +29,29 @@
     [data-theme=dark] { color: #fff }
 
     p {
-        background-color: #334155;
-        margin-bottom: 1rem;
-        display: inline-block;
-        padding: 1rem;
-        border-radius: .5rem;
+      background-color: #334155;
+      margin-bottom: 1rem;
+      display: inline-block;
+      padding: 1rem;
+      border-radius: .5rem;
     }
 
     div {
-        padding: 3rem;
-        text-align: center;
+      padding: 3rem;
+      text-align: center;
     }
   ]]></b:skin>
   <b:defaultmarkups>
     <b:defaultmarkup type="Common">
       <b:includable id='@checkDarken'>
-        <b:comment><!--
-        // @param {color} color - Variable de color de data:skin.vars
-        // @param {string} [attr=data-theme] - Nombre del atributo
-        // @param {string} [value=dark] - Valor del atributo
-        // @param {string} [callback] - El nombre de otra inclusion
-        --></b:comment>
+        <b:comment>
+        Comprobar la oscuridad de un color
+        @author zkreations
+        @param {color} color - Variable de color de data:skin.vars
+        @param {string} [attr=data-theme] - Nombre del atributo
+        @param {string} [value=dark] - Valor del atributo
+        @param {string} [callback] - El nombre de otra inclusion
+        </b:comment>
         <b:with
           value='+((data:color.red * .299),(data:color.green * .587),(data:color.blue * .114))'
           var="brightness">

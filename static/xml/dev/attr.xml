@@ -41,9 +41,11 @@
   <b:defaultmarkups>
     <b:defaultmarkup type="Common">
       <b:includable id='@attr'>
-        <b:comment><!--
-        // @arg {object} - Un objeto de matrices con los atributos y sus valores
-        --></b:comment>
+        <b:comment>
+        Add or remove multiple attributes
+        @author zkreations
+        @arg {Array[Array]} - Arrays of attributes to add or remove
+        </b:comment>
         <b:loop values='data:' var='i'>
           <b:attr expr:name='data:i[0] ?: "null"' expr:value='data:i[1]'/>
         </b:loop>

@@ -45,12 +45,12 @@
     <b:defaultmarkup type="Common">
       <b:includable id='@checkDarken'>
         <b:comment>
-        Comprobar la oscuridad de un color
+        Check the darkness of a color
         @author zkreations
-        @param {color} color - Variable de color de data:skin.vars
-        @param {string} [attr=data-theme] - Nombre del atributo
-        @param {string} [value=dark] - Valor del atributo
-        @param {string} [callback] - El nombre de otra inclusion
+        @param {color} color - Color variable from data:skin.vars
+        @param {string} [attr=data-theme] - Attribute name
+        @param {string} [value=dark] - Attribute value
+        @param {string} [callback] - The name of another inclusion
         </b:comment>
         <b:with
           value='+((data:color.red * .299),(data:color.green * .587),(data:color.blue * .114))'

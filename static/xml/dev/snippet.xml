@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:js='false' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta expr:charset='data:blog.encoding'/>
+  <meta content='width=device-width,initial-scale=1' name='viewport'/>
+  <title>@snippet</title>
+  <link expr:href='data:blog.blogspotFaviconUrl' rel='icon' type='image/x-icon'/>
+  <b:skin><![CDATA[
+    /* Demo */
+    body {
+      background-color: #101828;
+      padding: 2rem;
+      line-height: 1.75;
+      font-family: Arial, sans-serif;
+    }
+
+    * { margin: 0; font-size: 1rem; }
+    h3 { color: white; }
+    p { margin-top: 0.5rem; }
+
+    article {
+      padding: 1rem;
+      background-color: #1e2939;
+      color: #99a1af;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0px 4px 6px -1px rgba(0,0,0,0.1),
+        0px 2px 4px -1px rgba(0,0,0,0.06);
+    }
+
+    .snippets {
+      max-width: 700px;
+      margin: auto;
+    }
+  ]]></b:skin>
+  <b:defaultmarkups>
+    <b:defaultmarkup type='Common'>
+      <b:includable id='@snippet'>
+        <b:comment>
+        Creates a snippet of a string
+        @author zkreations
+        @param {string} string - Text to be shortened
+        @param {string} [tag="p"] - Container HTML tag
+        @param {string} [class] - Container class
+        @param {string} [id] - Container id
+        @param {number} [length=70] - Length of the string
+        @param {string} [ellipsis="..."] - Ellipsis to be added at the end of the string
+        </b:comment>
+        <b:if cond='data:string and (data:string snippet {
+            links: false,
+            ellipsis: false,
+            linebreaks: false
+          }) != ""'>
+          <b:with value='data:length ?: 70' var='length'>
+          <b:with value='(data:length + 0) == data:length ? (data:length * 1) : 70' var='length'>
+            <b:tag expr:name='data:tag ?: "p"'>
+              <b:class cond='data:class' expr:name='data:class'/>
+              <b:attr name='id' expr:value='data:id'/>
+              <b:eval expr='(data:string snippet {
+                  length: data:length,
+                  links: false,
+                  ellipsis: false,
+                  linebreaks: false
+                }) + (data:ellipsis ?: "...")'/>
+            </b:tag>
+          </b:with>
+          </b:with>
+        <b:else/>
+          <b:comment render='true'>No text to display</b:comment>
+        </b:if>
+      </b:includable>
+    </b:defaultmarkup>
+    <b:defaultmarkup type="Blog">
+      <b:includable id="main"/>
+      <b:includable id="defaultAdUnit"/>
+      <b:includable id="blogThisShare"/>
+      <b:includable id="bylineByName"/>
+      <b:includable id="bylineRegion"/>
+      <b:includable id="commentsLink"/>
+      <b:includable id="commentsLinkIframe"/>
+      <b:includable id="emailPostIcon"/>
+      <b:includable id="facebookShare"/>
+      <b:includable id="footerBylines"/>
+      <b:includable id="headerByline"/>
+      <b:includable id="googlePlusShare"/>
+      <b:includable id="linkShare"/>
+      <b:includable id="otherSharingButton"/>
+      <b:includable id="platformShare"/>
+      <b:includable id="postAuthor"/>
+      <b:includable id="postCommentsLink"/>
+      <b:includable id="postJumpLink"/>
+      <b:includable id="postLabels"/>
+      <b:includable id="postLocation"/>
+      <b:includable id="postReactions"/>
+      <b:includable id="postShareButtons"/>
+      <b:includable id="postTimestamp"/>
+      <b:includable id="sharingButton"/>
+      <b:includable id="sharingButtonContent"/>
+      <b:includable id="sharingButtons"/>
+      <b:includable id="sharingButtonsMenu"/>
+      <b:includable id="sharingPlatformIcon"/>
+      <b:includable id="aboutPostAuthor"/>
+      <b:includable id="addComments"/>
+      <b:includable id="commentAuthorAvatar"/>
+      <b:includable id="commentDeleteIcon"/>
+      <b:includable id="commentForm"/>
+      <b:includable id="commentFormIframeSrc"/>
+      <b:includable id="commentItem"/>
+      <b:includable id="commentList"/>
+      <b:includable id="commentPicker"/>
+      <b:includable id="comments"/>
+      <b:includable id="commentsTitle"/>
+      <b:includable id="feedLinks"/>
+      <b:includable id="feedLinksBody"/>
+      <b:includable id="homePageLink"/>
+      <b:includable id="iframeComments"/>
+      <b:includable id="inlineAd"/>
+      <b:includable id="manageComments"/>
+      <b:includable id="nextPageLink"/>
+      <b:includable id="post"/>
+      <b:includable id="postBody"/>
+      <b:includable id="postBodySnippet"/>
+      <b:includable id="postCommentsAndAd"/>
+      <b:includable id="postFooter"/>
+      <b:includable id="postFooterAuthorProfile"/>
+      <b:includable id="postHeader"/>
+      <b:includable id="postMeta"/>
+      <b:includable id="postMetadataJSONImage"/>
+      <b:includable id="postMetadataJSONPublisher"/>
+      <b:includable id="postPagination"/>
+      <b:includable id="postTitle"/>
+      <b:includable id="previousPageLink"/>
+      <b:includable id="threadedCommentForm"/>
+      <b:includable id="threadedCommentJs"/>
+      <b:includable id="threadedComments"/>
+    </b:defaultmarkup>
+  </b:defaultmarkups>
+</head>
+<body>
+  <b:section id='main'>
+    <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
+      <b:includable id='main'>
+        <!-- Recorre los posts y muestra un resumen de cada uno -->
+        <div class="snippets">
+          <b:loop values='data:posts' var='post'>
+            <article>
+              <h3><data:post.title/></h3>
+              <b:include name='@snippet' data='{
+                string: data:post.snippets.long,
+                length: 150
+              }'/>
+            </article>
+          </b:loop>
+        </div>
+      </b:includable>
+    </b:widget>
+  </b:section>
+</body>
+</html>

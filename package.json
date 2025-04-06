@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/zkreations/data#readme",
   "dependencies": {
-    "blogger-numeric-pager": "^1.1.6",
-    "hamlet-builder": "^1.0.38",
+    "blogger-numeric-pager": "^1.1.9",
+    "hamlet-builder": "^1.0.40",
     "handlebars": "^4.7.8"
   },
   "devDependencies": {

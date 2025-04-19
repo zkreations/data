@@ -19,7 +19,7 @@
   "homepage": "https://github.com/zkreations/data#readme",
   "dependencies": {
     "blogger-numeric-pager": "^1.2.16",
-    "blogger-related-posts": "^1.1.6",
+    "blogger-related-posts": "^1.1.8",
     "hamlet-builder": "^1.0.40",
     "handlebars": "^4.7.8"
   },

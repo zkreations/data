@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/zkreations/data#readme",
   "dependencies": {
+    "@zkreations/tooltips": "^4.2.1",
     "blogger-numeric-pager": "^1.2.18",
     "blogger-related-posts": "^1.1.8",
     "hamlet-builder": "^1.0.45",

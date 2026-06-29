@@ -10,32 +10,20 @@
     /* Demo */
     * { margin: 0 }
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #030712;
-      color: #f9fafb;
-      line-height: 1.5;
+      background-color: #fff;
       padding: 2rem;
     }
 
     /*Test*/
-    div {
-      padding: 3rem;
-      text-align: center;
+    .table {
+      border-collapse: collapse;
+      font: 14px monospace;
     }
 
-    div:not(.console) {
-      background-color: #111827;
-    }
-
-    div:not(.console)::before {
-      content: "Elemento div padre";
-      margin-bottom: 2rem;
-      display: block;
-    }
-
-    .console {
-      background-color: #1f2937;
-      border-radius: 1rem;
+    .table :where(th, td) {
+      padding: .35rem .6rem;
+      border: 1px solid #ccc;
+      text-align: left;
     }
   ]]></b:skin>
   <b:defaultmarkups>
@@ -44,40 +32,39 @@
         <b:comment>
         Add or remove multiple attributes
         @author zkreations
-        @arg {Array[Array]} - Arrays of attributes to add or remove
+        @param {Array[Array]} data - Array of attribute name-value pairs
         </b:comment>
-        <b:loop values='data:' var='i'>
-          <b:attr expr:name='data:i[0] ?: "null"' expr:value='data:i[1]'/>
-        </b:loop>
+        <b:if cond='data:'>
+          <b:loop values='data:' var='i'>
+            <b:attr expr:name='data:i[0]' expr:value='data:i[1]'/>
+          </b:loop>
+        <b:else/>
+          <b:comment render='true'>Parameter [data] is required.</b:comment>
+        </b:if>
       </b:includable>
     </b:defaultmarkup>
   </b:defaultmarkups>
 </head>
 <body>
   <b:section cond='data:view.isLayoutMode' id='main'/>
-  <div class='another'>
+  <article class='demo'>
     <b:include data='{["id","foo"],["class","foo"]}' name='@attr'/>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody/>
+    </table>
+  </article>
 
-    <!-- Te indica visualmente que atributos agregaste o quitaste -->
-    <div class='console'></div>
-  </div>
-
-  <!-- Consola visual -->
   <script>
-  /*<![CDATA[*/
-    const console = document.querySelector(".console");
-    const padre = console.parentElement;
-    const atributos = Array.from(padre.attributes);
-
-    if (atributos.length === 0) {
-      console.innerHTML = "<p>No hay atributos</p>";
-    } else {
-      atributos.forEach((atributo) => {
-        const p = `<p><span>${atributo.name}: </span><span>${atributo.value}</span></p>`;
-        console.insertAdjacentHTML("beforeend", p);
-      });
-    }
-  /*]]>*/
+  //<![CDATA[
+    document.querySelector('tbody')
+      .innerHTML = [...document.querySelector('article').attributes].map(a => `<tr><td>${a.name}</td><td>${a.value}</td></tr>`).join('');
+  //]]>
   </script>
 </body>
 </html>

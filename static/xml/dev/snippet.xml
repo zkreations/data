@@ -58,7 +58,7 @@
               </b:tag>
             </b:with>
           <b:else/>
-            <b:comment render='true'>Text parameter is empty. Please provide a valid string.</b:comment>
+            <b:comment render='true'>No visible text to display after sanitization.</b:comment>
           </b:if>
         </b:with>
       </b:includable>

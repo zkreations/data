@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html b:css="false" b:js="false" b:defaultwidgetversion="2" b:layoutsVersion="3" expr:dir="data:blog.languageDirection" expr:lang="data:blog.locale">
+<head>
+  <meta expr:charset="data:blog.encoding"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>@contrast</title>
+  <link expr:href="data:blog.blogspotFaviconUrl" rel="icon" type="image/x-icon"/>
+  <b:skin><![CDATA[
+    /*
+      <Group description="Backgrounds">
+        <Variable name="bg1" description="Fondo 1" type="color" default="#fff"/>
+        <Variable name="bg2" description="Fondo 2" type="color" default="#0f172a"/>
+      </Group>
+    */
+    /* Demo */
+    * { margin: 0 }
+    body {
+      background-color: #fff;
+      padding: 2rem;
+    }
+
+    /*Test*/
+    .bg1 { background-color: $(bg1) }
+    .bg2 { background-color: $(bg2) }
+    [data-theme="dark"] { color: #fff }
+    [data-theme="dark"] .contrast::before { content: "true" }
+    [data-theme="light"] .contrast::before { content: "false" }
+
+    article { padding: 1rem; max-width: 500px; }
+  ]]></b:skin>
+  <b:defaultmarkups>
+    <b:defaultmarkup type="Common">
+      <b:includable id='@contrast'>
+        <b:comment>
+        Evaluates a color's brightness and exposes its contrast state.
+        @author zkreations
+        @param {Color} color - Color variable from data:skin.vars
+        @param {Number} [threshold=155] - Brightness limit to trigger the dark state (0-255)
+        @param {String} [attr="data-theme"] - Target attribute name to render
+        </b:comment>
+        <b:with value='+((data:color.red * 0.299), (data:color.green * 0.587), (data:color.blue * 0.114))' var='brightness'>
+          <b:with value='(data:threshold + 0) == data:threshold ? (data:threshold * 1) : 155' var='limit'>
+            <b:attr expr:name='data:attr ?: "data-theme"' expr:value='data:brightness lt data:limit
+              ? "dark"
+              : "light"'/>
+          </b:with>
+        </b:with>
+      </b:includable>
+    </b:defaultmarkup>
+  </b:defaultmarkups>
+</head>
+<body>
+  <b:section cond='data:view.isLayoutMode' id='main'/>
+  <article class="bg1">
+    <b:include name="@contrast" data='{ color: data:skin.vars.bg1 }'/>
+    <p>Valor de <code>data:skin.vars.bg1</code>: <code><b:eval expr='data:skin.vars.bg1'/></code></p>
+    <p>Umbral de brillo superado: <code class="contrast"></code></p>
+  </article>
+  <article class="bg2">
+    <b:include name="@contrast" data='{ color: data:skin.vars.bg2 }'/>
+    <p>Valor de <code>data:skin.vars.bg2</code>: <code><b:eval expr='data:skin.vars.bg2'/></code></p>
+    <p>Umbral de brillo superado: <code class="contrast"></code></p>
+  </article>
+</body>
+</html>

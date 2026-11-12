@@ -1,7 +1,6 @@
 ---
 title: "Presentando Blog"
 description: "Presentación del nuevo blog de zkreations."
-author: "Abel D."
 image: "cover.jpg"
 image_alt: "Imagen de portada del blog"
 pinned: false

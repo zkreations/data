@@ -1,7 +1,6 @@
 node_modules
 .cache.json
 package-lock.json
-*.md
 *.tgz
 .themerc.json
 # Ignorar archivos fuentes

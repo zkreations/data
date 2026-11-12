@@ -1,0 +1,45 @@
+# hugo server --themesDir ../..
+
+title = "zkreations.blog"
+theme = "hufolio"
+baseURL = "https://blog.zkreations.com/"
+defaultContentLanguage = "es"
+
+enableRobotsTXT = true
+enableGitInfo = true
+disableKinds = ["taxonomy", "term"]
+
+[outputFormats.llms]
+  baseName = "llms"
+  mediaType = "text/plain"
+  isPlainText = true
+  notAlternative = true
+
+[outputFormats.llmsfull]
+  baseName = "llms-full"
+  mediaType = "text/plain"
+  isPlainText = true
+  notAlternative = true
+
+[outputs]
+  home = ["html", "rss", "llms", "llmsfull"]
+
+[params]
+  description = "Blog sobre actualizaciones de zkreations."
+  author = "zkreations"
+  author_role = "Designer & Developer"
+  author_bio = "Actualizaciones importantes sobre los proyectos de código abierto que desarrollo."
+  date_format = "02 Jan 2006"
+  home_posts_limit = 8
+  show_reading_time = true
+  footer_text = "Todos los derechos reservados."
+  cover_wide = true
+  telegram_channel = "@zkreations_updates"
+
+  [[params.social]]
+    name = "GitHub"
+    url = "https://github.com/zkreations"
+
+  [[params.social]]
+    name = "Web"
+    url = "https://www.zkreations.com/"

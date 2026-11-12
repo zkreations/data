@@ -11,6 +11,8 @@ Estoy emocionado de anunciar este nuevo espacio en [blog.zkreations.com](https:/
 
 Para mí era importante tener un lugar separado de mi sitio web principal, ya que hay muchos temas que no encajan allí, pero no es el único motivo por el cual hice esta separación.
 
+Ademas es una gran oportunidad para usar por fin mi galeria personal de imagenes anime antiguas, es un estilo que me gusta mucho y creo que tengo suficientes imagenes para ilustrar los temas que quiero tratar.
+
 ## Telegram Instant View
 
 Me interese por esta implementación de Telegram desde que me enteré de su existencia, la cual permite a los usuarios de Telegram leer artículos de manera rapida sin salir de la aplicación de Telegram.
